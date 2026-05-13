@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #08031a;
+    background-attachment: fixed;
+    color: #ffffff;
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 75% 10%, rgba(100, 20, 180, 0.55) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(80, 10, 140, 0.35) 0%, transparent 55%),
+      linear-gradient(160deg, #08031a 0%, #130835 50%, #08031a 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(140, 80, 220, 0.12) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #08031a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #7c3aed;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-violet-500/50 bg-white/[0.04] shadow-lg shadow-violet-900/10 backdrop-blur-sm;
+  }
+
+  .section-title {
+    @apply font-heading font-black text-4xl md:text-5xl leading-tight;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-heading font-semibold text-sm px-6 py-3 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-violet-600/50 hover:border-violet-500 hover:bg-violet-600/10 text-violet-300 font-heading font-semibold text-sm px-6 py-3 rounded-full transition-all duration-200;
+  }
+
+  .field-input {
+    @apply w-full bg-white/[0.05] border border-violet-600/20 rounded-xl px-4 py-3 text-white placeholder-violet-300/40 text-sm focus:outline-none focus:border-violet-500/50 transition-colors;
+  }
+
+  .field-textarea {
+    @apply w-full bg-white/[0.05] border border-violet-600/20 rounded-xl px-4 py-3 text-white placeholder-violet-300/40 text-sm focus:outline-none focus:border-violet-500/50 transition-colors resize-none;
+  }
+}
